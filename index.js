@@ -23,11 +23,6 @@ app.use("/api/auth", require("./routes/auth"));
 app.use("/api/proyectos", require("./routes/proyectos"));
 app.use("/api/tareas", require("./routes/tareas"));
 
-//definir la pagina principal
-app.get("/", (req, res) => {
-    res.send("hello world");
-});
-
 //arrancar el servidor
 app.listen(PORT, () => {
     console.log(`El servidor esta funcionando en el puerto ${PORT}`);
