@@ -18,13 +18,13 @@ exports.autenticarUsuario = async (req, res) => {
         //revisar que sea un usuario registrado
         let usuario = await Usuario.findOne({email});
         if(!usuario){
-            return res.status(400).json({msg: "El usuario no existe"});
+            return res.status(400).json({msg: "Username does not exist"});
         }
 
         //revisar el password
         const passCorrecto = await bcryptjs.compare(password, usuario.password);
         if(!passCorrecto) {
-            return res.status(400).json({msg: "Password Incorrecto"})
+            return res.status(400).json({msg: "Wrong Password"})
         }
 
         //si todo es correcto crear y firmar el jwt
